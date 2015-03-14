@@ -8,5 +8,5 @@ import javax.ejb.Local;
 
 @Local
 public interface ICarService {
-    int getCarCount();
+    Integer getCarCount(Integer manufacturerAa);
 }
