@@ -1,0 +1,14 @@
+<persistence
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+        version="1.0" xmlns="http://java.sun.com/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <persistence-unit name="testapp" transaction-type="JTA">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>testapp-ds</jta-data-source>
+        <class>com.github.karasik.entity.dto.OwnerDTO</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>
