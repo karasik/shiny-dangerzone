@@ -7,18 +7,20 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by efim on 14.03.15.
  */
 
-@Entity(name = "com.github.karasik.ICar")
+@Entity(name = "ICar")
 @Table(name = "CAR")
 @AttributeOverrides({@AttributeOverride(name = "name", column = @Column(name = "CAR_NAME"))})
 public class CarDTO extends AbstractNamedEntityDTO implements ICar {
 
     private IOwner owner;
     private IManufacturer manufacturer;
+    private Collection<String> colors;
 
     @Id
     @Column(name = "CAR_AA")
@@ -50,5 +52,18 @@ public class CarDTO extends AbstractNamedEntityDTO implements ICar {
     @Override
     public void setManufacturer(IManufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    @ElementCollection
+    @CollectionTable(name = "COLORS", joinColumns = @JoinColumn(name = "COL_CAR_AA"))
+    @Column(name = "COL_NAME")
+    @Override
+    public Collection<String> getColors() {
+        return colors;
+    }
+
+    @Override
+    public void setColors(Collection<String> colors) {
+        this.colors = colors;
     }
 }

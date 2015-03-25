@@ -6,15 +6,13 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>testapp-ds</jta-data-source>
 
-        <class>com.github.karasik.entity.dto.OwnerDTO</class>
-        <class>com.github.karasik.entity.dto.ManufacturerDTO</class>
-        <class>com.github.karasik.entity.dto.CarDTO</class>
-
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.default_batch_fetch_size" value="128"/>
+            <property name="hibernate.default_batch_fetch_size" value="256"/>
+
+            <property name="hibernate.batch_fetch_style" value="DYNAMIC"/>
         </properties>
     </persistence-unit>
 </persistence>

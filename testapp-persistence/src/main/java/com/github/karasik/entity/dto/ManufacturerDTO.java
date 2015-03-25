@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by efim on 14.03.15.
  */
 
-@Entity(name = "com.github.karasik.entity.IManufacturer")
+@Entity(name = "IManufacturer")
 @Table(name = "MANUFACTURER")
 @AttributeOverrides({@AttributeOverride(name = "name", column = @Column(name = "MAN_NAME"))})
 public class ManufacturerDTO extends AbstractNamedEntityDTO implements IManufacturer {
